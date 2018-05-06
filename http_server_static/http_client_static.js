@@ -14,5 +14,5 @@ function handleResponse(response) {
   });
 }
 http.request(options, function(response) {
-  handleResponse(response)response);
+  handleResponse(response);
 }).end();

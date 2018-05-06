@@ -2,7 +2,7 @@ var fs = require('fs');
 var http = require('http');
 var url = require('url');
 
-var ROOT_DIR = '/html';
+var ROOT_DIR = './';
 
 //========================================================================
 // Create the http server with a callback function that
