@@ -17,6 +17,12 @@ var server = net.createServer(function (client) {
   });
   client.on('end', function() {
     console.log('Client disconnected');
+    server.getConnections( function(err, count) {
+      console.log("Remaining connections: " + count);
+    });
+  });
+  client.on('error', function(err) {
+    console.log('Socket error: ' + JSON.stringify(err));
   });
   client.write('Hello');
 });
@@ -28,4 +34,10 @@ server.on('listening', function() {
 
 server.listen({"port" : 8107}, function() {
   console.log("Server configuration: " + JSON.stringify(server.address()));
+  server.on('error', function(err) {
+    console.log('Server Error: ' + JSON.stringify(err));
+  });
+  server.on('end', function() {
+    console.log('Server Terminated.');
+  });
 });
