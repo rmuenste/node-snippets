@@ -5,7 +5,7 @@ var net = require('net');
  * name to the computer 'localhost'.
  * @parameter connName: a string for the connection name
  */
-function getConnection(connName) {
+function getConnection(connName, msg) {
   var client = net.connect({host : 'localhost', port : 8107}, function() {
     console.log(connName + " connected: ");
     console.log("    local: %s:%s", this.localAddress, this.localPort);
@@ -33,6 +33,7 @@ function getConnection(connName) {
       console.log(connName + " Socket closed.");
     });
   });
+  writeData(client, msg);
 } 
 
 /**
@@ -50,13 +51,13 @@ function writeData(socket, data) {
   }
 }
 
-Dwarves = getConnection('Dwarves');
-Elves = getConnection('Elves');
-Hobbits = getConnection('Hobbits');
+Dwarves = getConnection('Dwarves', "More Axes");
+Elves = getConnection('Elves', "More Arrows");
+Hobbits = getConnection('Hobbits', "More Pipe Weed");
 
-writeData(Dwarves, "More Axes");
-writeData(Elves, "More Arrows");
-writeData(Hobbits, "More Pipe Weed");
+//writeData(Dwarves, "More Axes");
+//writeData(Elves, "More Arrows");
+//writeData(Hobbits, "More Pipe Weed");
 
 
 
