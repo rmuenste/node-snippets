@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+    <div>
+
+      <label>First number:</label>
+      <input type="number" placeholder="1" ng-model="num1"/>
+      <label>Second number:</label>
+      <input type="number" placeholder="1" ng-model="num2"/>
+      <hr>
+      <h1>Hello {{num1 + num2}}!</h1>
+      <h1>Product {{num1 * num2}}!</h1>
+
+    </div>
+  </body>
+</html>
