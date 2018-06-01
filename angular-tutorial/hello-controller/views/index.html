@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../public/js/app.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <!-- Set up the scope of the angular module, make an alias for MainController  -->
+  <body ng-app="app" ng-controller="MainController as main">
+    <div>
+
+      <label>First number:</label>
+      <input type="number" ng-model="main.num1"/> <br/>
+      <label>Second number:</label>
+      <input type="number" ng-model="main.num2"/>
+      <hr>
+      <h1>Sum: {{main.num1 + main.num2}}</h1>
+      <h1>Product: {{main.num1 * main.num2}}</h1>
+
+    </div>
+  </body>
+</html>

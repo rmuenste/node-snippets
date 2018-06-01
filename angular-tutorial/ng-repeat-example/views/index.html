@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../public/js/app.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <!-- Set up the scope of the angular module, make an alias for MainController  -->
+  <body ng-app="app" ng-controller="MainController as main">
+    <h2>ToDo List</h2>
+    <ul>
+      <li ng-repeat="task in main.tasks">
+        <!--        <input type="checkbox" ng-model="task.done"> {{task.name}} -->
+        <input type="checkbox" ng-model="task.done">
+        <span ng-if="!task.done"> {{task.name}} </span>
+      </li>
+    </ul>
+  </body>
+</html>
+
+<!--
+  ng-show: show the element if the property in quotes evaluates to true
+  ng-hide: hide the element if the property in quotes evaluates to true
+  ng-if: remove the element from the DOM if the property in quotes evaluates to false
+-->
