@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../public/js/app.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <!-- Set up the scope of the angular module, make an alias for MainController  -->
+  <body ng-app="app" ng-controller="MainController as main">
+    <h2>ToDo List</h2>
+    <hr />
+
+    <form>
+      <h3>New Task:</h3>
+      Name: <input type="text" ng-model="newtask.name" />
+      <input type="submit" ng-click="main.add(newtask)" value="Add Task" />
+    </form>
+    <hr />
+    <ul>
+      <li ng-repeat="task in main.tasks">
+        <!-- The value of the checkbox is taken from the task.done variable.
+             We add a click event handler and assign it to the function
+             main.delete
+        -->
+        <input type="checkbox" ng-model="task.done" ng-click="main.delete(task)"/>
+        <span ng-hide="task.done"> {{task.name}} </span>
+      </li>
+    </ul>
+  </body>
+</html>
+
+<!--
+  ng-show: show the element if the property in quotes evaluates to true
+  ng-hide: hide the element if the property in quotes evaluates to true
+  ng-if: remove the element from the DOM if the property in quotes evaluates to false
+-->

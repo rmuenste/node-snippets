@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../public/js/app.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <!-- Set up the scope of the angular module, make an alias for MainController  -->
+  <body ng-app="app" ng-controller="FormController as formCtrl">
+    <form ng-controller="FormController as formCtrl" name="form" 
+          ng-submit="formCtrl.submitForm()" novalidate>
+      <div>
+        <label>Enter Name:</label> 
+        <!-- get the users name -->
+        <input type="text"
+               name="user"
+               ng-model="userName"
+               ng-minlength=4
+               ng-maxlength=10
+               required />
+        <!-- form validation -->
+        <span style="color:#FF9900" ng-show="form.user.$dirty && form.user.$invalid">
+          <span ng-show="form.user.$error.required">
+            You must enter your name
+          </span>
+          <span ng-show="form.user.$error.minlength">
+            Your user name is too short
+          </span>
+          <span ng-show="form.user.$error.maxlength">
+            Your user name is too long
+          </span>
+        </span>
+      </div>
+      <br>
+      <div>
+        <label>Enter Age:</label> 
+        <!-- get the users name -->
+        <input type="number"
+               name="age"
+               ng-model="userAge"
+               required />
+        <!-- form validation -->
+        <span style="color:#FF9900" ng-show="form.age.$dirty && form.age.$invalid">
+          <span ng-show="form.age.$error.required">
+            You must enter your age
+          </span>
+          <span ng-show="form.age.$error.number">
+            Your age must be a number
+          </span>
+        </span>
+      </div>
+      <hr/>
+      <!-- submit form -->
+    <input type="submit" name="submit" value="Submit" 
+           ng-disabled="form.user.$invalid || form.age.$invalid" />
+    </form>
+  </body>
+</html>
+
+<!--
+  ng-show: show the element if the property in quotes evaluates to true
+  ng-hide: hide the element if the property in quotes evaluates to true
+  ng-if: remove the element from the DOM if the property in quotes evaluates to false
+-->
